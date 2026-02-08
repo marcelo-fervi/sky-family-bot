@@ -18,7 +18,7 @@ const client = new Client({
 export default client;
 
 //BOT Status/activity controller
-client.on('ready', async (interaction) => {
+client.on('clientReady', async (interaction) => {
     const activities = config.activities;
     const status = [
         'dnd'
@@ -47,7 +47,7 @@ client.on('ready', async (interaction) => {
     }, 10000);
 });
 
-client.on('ready', async () => {
+client.on('clientReady', async () => {
     const activitiesChannel = await client.channels.fetch(config.channels.activities_channel).catch(() => {});
     if (activitiesChannel) {
         //console.log("Activity channel found!");
